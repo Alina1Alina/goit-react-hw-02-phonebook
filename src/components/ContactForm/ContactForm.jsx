@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { nanoid } from 'nanoid';
+
 import { FormContainer, Form, Text, Input, Submit } from './StyledContactForm';
 import PropTypes from 'prop-types';
 
@@ -14,7 +14,7 @@ e.preventDefault();
 const { name, number } = e.target.elements;
 
  this.props.onSubmit({
-id: nanoid(),
+
 name: this.state.name,
 number: this.state.number,
     });

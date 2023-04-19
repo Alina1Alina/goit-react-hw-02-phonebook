@@ -1,20 +1,18 @@
-import { Component } from 'react';
 import { DeleteItem, Span } from './StyledListContact';
 import PropTypes from 'prop-types';
 
-export class ContactList extends Component {
-  render() {
-    return (
+export const ContactList = ({contacts,onDeleteContact  })=>  {
+   return (
       <div>
         <ul>
-          {this.props.contacts.map(({ id, name, number }) => (
+          {contacts.map(({ id, name, number }) => (
             <li key={id}>
               <Span>
                 {name}: {number}
               </Span>
               <DeleteItem
                 type="button"
-                onClick={() => this.props.onDeleteContact(id)}
+                onClick={() => onDeleteContact(id)}
               >
                 Delete
               </DeleteItem>
@@ -24,7 +22,7 @@ export class ContactList extends Component {
       </div>
     );
   }
-}
+
 
 ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
