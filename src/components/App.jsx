@@ -45,11 +45,11 @@ formSubmitHandler = data => {
     }));
   };
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
     return (
       <Container>
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.formSubmitHandler} contacts={contacts} />
+        <ContactForm onSubmit={this.formSubmitHandler}  />
 
         <h2>Contacts</h2>
         <Filter changeFilter={this.changeFilter} filter={filter} />

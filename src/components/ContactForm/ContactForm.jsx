@@ -4,29 +4,42 @@ import { FormContainer, Form, Text, Input, Submit } from './StyledContactForm';
 import PropTypes from 'prop-types';
 
 export class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
-
   handleSubmit = e => {
-e.preventDefault();
-const { name, number } = e.target.elements;
+    e.preventDefault();
+    const { name, number } = e.target.elements;
+    const { onSubmit } = this.props;
 
- this.props.onSubmit({
-
-name: this.state.name,
-number: this.state.number,
+    onSubmit({
+      name: name.value,
+      number: number.value,
     });
 
     name.value = '';
     number.value = '';
   };
+//   state = {
+//     name: '',
+//     number: '',
+//   };
 
-  handleChange = e => {
-    const { name, value } = e.currentTarget;
-    this.setState({ [name]: value });
-  };
+//   handleSubmit = e => {
+// e.preventDefault();
+// const { name, number } = e.target.elements;
+
+//  this.props.onSubmit({
+
+// name: this.state.name,
+// number: this.state.number,
+//     });
+
+//     name.value = '';
+//     number.value = '';
+//   };
+
+//   handleChange = e => {
+//     const { name, value } = e.currentTarget;
+//     this.setState({ [name]: value });
+//   };
 
   render() {
     return (
